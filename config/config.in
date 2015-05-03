@@ -55,7 +55,7 @@ include $(EST)/config/config
 # ALSO_INCLUDE += UniSyn_phonology UniSyn_selection
 ## Cluster unit selection code as described in "Building Voices in
 ## Festival", again experimental and suitable for research purposes only.
-ALSO_INCLUDE += clunits clustergen MultiSyn
+ALSO_INCLUDE += clunits clustergen MultiSyn OGIModules
 
 ## NITECH and Tokyo Institute of Technologies HTS support
 ALSO_INCLUDE += hts_engine
