@@ -1,0 +1,37 @@
+
+MIDISEND(N)                          LOCAL                         MIDISEND(N)
+
+NNAAMMEE
+     mmiiddiisseenndd - tclmidi command to write an event(s) immediately to a raw MIDI
+     device
+
+SSYYNNOOPPSSIISS
+     mmiiddiisseenndd _D_e_v_I_D _e_v_e_n_t [event ...]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiisseenndd is a tclmidi(1) command that write an event or events to a raw
+     device.  The list of events will be sent out on the MIDI stream with a
+     little delay as possible.
+
+     The first argument is a device ID, as returned by a call to
+     mididevice(n).  It should be a raw MIDI device (one with a name like
+     _/_d_e_v_/_r_m_i_d_i_0_)_. The second argument is an events followed by zero of more
+     optional events.  Each event should have a time stamp, but the stamp will
+     be ignored.
+
+     mmiiddiisseenndd can be used simultaneously with midiplay(n) and midirecord(n).
+     Untimed events can be sent to a raw device while timed events are being
+     played to the timed interface of the device.
+
+     See midievents(n),  for a description of MIDI events.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiisseenndd returns nothing.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n),  midiplay(n),  midirecord(n),  midievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               November 30, 1995                             1

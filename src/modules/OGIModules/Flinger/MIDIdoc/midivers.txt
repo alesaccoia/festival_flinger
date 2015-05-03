@@ -1,0 +1,23 @@
+
+MIDIVERSION(N)                       LOCAL                      MIDIVERSION(N)
+
+NNAAMMEE
+     mmiiddiivveerrssiioonn - tclmidi command to report the version
+
+SSYYNNOOPPSSIISS
+     mmiiddiivveerrssiioonn
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiivveerrssiioonn is a tclmidi(1) command that reports the version that is run-
+     ning.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiivveerrssiioonn returns the version number.
+
+SSEEEE AALLSSOO
+     tclmidi(1)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               February 15, 1994                             1

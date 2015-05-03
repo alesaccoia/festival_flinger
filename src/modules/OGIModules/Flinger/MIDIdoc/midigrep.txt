@@ -1,0 +1,38 @@
+
+MIDIGREP(N)                          LOCAL                         MIDIGREP(N)
+
+NNAAMMEE
+     mmiiddiiggrreepp - tclmidi command to find events matching a given pattern in a
+     MIDI track
+
+SSYYNNOOPPSSIISS
+     mmiiddiiggrreepp _M_i_d_i_I_D _t_r_a_c_k _e_v_e_n_t [event ...]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiggrreepp is a tclmidi(1) command that will find all events in a specified
+     track that match the pattern events in the command argumets.  This first
+     argument is the descriptor for the MIDI song.  This descriptor should be
+     one returned by midimake(n) or midiread(n).  The second argument speci-
+     fies the track to index.  The third and remaining arguments are events
+     that you wish to locate.  The syntax of these events is the same as that
+     specified in midievent(n),  except that any field besides the event type
+     field may be replaced by the * character.  The * character then acts as a
+     wildcard and will match any value normally found for that parameter of
+     the specified event type.  Any number of fields for an event can be wild-
+     carded.
+
+     For example, _m_i_d_i_g_r_e_p _s_o_n_g_0 _1 _{_* _N_o_t_e _1 _4_2 _* _*_} will find all _N_o_t_e events
+     in _s_o_n_g_0 track _1 that are for channel 1, pitch 42, regardless of the note
+     velocity, duration or the time the Note event occurs.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiggrreepp returns a list off all the events that match the given event
+     patterns.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               February 25, 1996                             1

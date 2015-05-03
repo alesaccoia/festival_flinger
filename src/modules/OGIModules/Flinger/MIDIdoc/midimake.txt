@@ -1,0 +1,29 @@
+
+MIDIMAKE(N)                          LOCAL                         MIDIMAKE(N)
+
+NNAAMMEE
+     mmiiddiimmaakkee - tclmidi command to create an empty MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiimmaakkee
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiimmaakkee is a tclmidi(1) command that creates an empty MIDI song for use
+     by other tclmidi(1) commands.  By default the MIDI song is created with 0
+     tracks allocated, the format is type zero and the division is 120.  These
+     defaults can then be changed with the midiconfig(n) command.
+
+     Since mmiiddiimmaakkee allocates space for the MIDI song, midifree(n) should be
+     used when the file is no longer needed.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiimmaakkee returns a MIDI song descriptor for use by other tclmidi(1) com-
+     mands.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiconfig(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

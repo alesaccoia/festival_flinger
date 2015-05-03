@@ -1,0 +1,46 @@
+
+MIDIGET(N)                           LOCAL                          MIDIGET(N)
+
+NNAAMMEE
+     mmiiddiiggeett - tclmidi command to get one event from a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiiggeett _M_i_d_i_I_D _t_r_a_c_k _i_n_d_e_x
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiggeett is a tclmidi(1) command that gets one event from the specified
+     track of a MIDI Song.  This first argument is the descriptor for the MIDI
+     song.  This descriptor should be one returned by midimake(n) or
+     midiread(n).  The second argument specifies the track to index.  The
+     third argument is an index for that track.  This argument may be an abso-
+     lute time index, the string ``next'' or the string ``prev.''
+
+     Indices of ``next'' or ``prev'' will return one event that is immediately
+     after or before the last event returned by mmiiddiiggeett. The string ``EOT''
+     will be returned when the end (or beginning in the case of ``prev'') of
+     the track is reached.  The command midirewind(n) will reset the track po-
+     sition so that indices of ``next'' or ``prev'' will return the first and
+     last events of the track, respectively.
+
+     An absolute time index will return a list of all events at the specified
+     time.  If there are no events at the specified time, then a list of
+     events is returned with a time as close to, but greater than the time
+     specified.  If there are no events with a time equal to or greater than
+     the specified time, then the string ``EOT'' is returned.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiggeett with an index of ``next'' or ``prev,'' returns one event, unless
+     the end or beginning of the track is reached, in which case the string,
+     ``EOT'' is returned.  mmiiddiiggeett with an absolute time index returns a list
+     of all events that occur at that time.  If no events exist with a time
+     equal to or greater than the specified time, the string ``EOT'' is re-
+     turned.  All events are in standard event form, midievents(n).
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midirewind(n),  midiput(n),  mi-
+     dievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

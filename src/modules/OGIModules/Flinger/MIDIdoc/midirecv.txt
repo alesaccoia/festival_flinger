@@ -1,0 +1,36 @@
+
+MIDIRECV(N)                          LOCAL                         MIDIRECV(N)
+
+NNAAMMEE
+     mmiiddiirreeccvv - tclmidi command to read events immediately from a raw MIDI de-
+     vice
+
+SSYYNNOOPPSSIISS
+     mmiiddiirreeccvv _D_e_v_I_D
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiirreeccvv is a tclmidi(1) command that reads events from a raw device.
+     All events currently available are returned with a time stamp of 0.  If
+     no events are available, mmiiddiirreeccvv will block until one arrives.
+
+     The first argument is a device ID, as returned by a call to
+     mididevice(n).  It should be a raw MIDI device (one with a name like
+     _/_d_e_v_/_r_m_i_d_i_0_)_.
+
+     mmiiddiirreeccvv can be used simultaneously with midiplay(n).  Using it in con-
+     junction with midirecord(n) on the same device will cause problems as
+     they will both try to read from the same stream.
+
+     See midievents(n),  for a description of MIDI events.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiirreeccvv returns a list of all events currently available.  All events
+     will have a timestamp of 0.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n),  midiplay(n),  midirecord(n),  midievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               November 30, 1995                             1

@@ -1,0 +1,88 @@
+
+MIDIDEVICE(N)                        LOCAL                       MIDIDEVICE(N)
+
+NNAAMMEE
+     mmiiddiiddeevviiccee - tclmidi command to create a MIDI device and modify the con-
+     figuration
+
+SSYYNNOOPPSSIISS
+     mmiiddiiddeevviiccee DeviceName [midithru value] [slave MasterDevID] [channel_on
+     ChannelList] [channel_off ChannelList] mmiiddiiddeevviiccee DevID [close] [midithru
+     [value]] [slave MasterDevID] [channel_on [ChannelList]] [channel_off
+     [ChannelList]] mmiiddiiddeevviiccee
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiddeevviiccee is a tclmidi(1) command that creates a MIDI device and allows
+     you to modify the configuration of an existing device if ttccllmmiiddii was
+     built with device support.  A device driver for some MIDI interfaces is
+     included with this release for the following architectures:
+           BSD/OS
+           Linux
+           FreeBSD
+           SVR4
+     The first form of mmiiddiiddeevviiccee is used when the device is created for the
+     first time.  The second form is used once the device has been created.
+
+     The first parameter is the device identifier.  In the first case, it
+     should be a path name for the device.  Something like, _/_d_e_v_/_m_i_d_i_0. In the
+     second form it is a device identifier returned from a call to the first
+     form.  In the third form, mmiiddiiddeevviiccee returns a ``1'' or ``0''. A ``1'' is
+     returned if ttccllmmiiddii was built with MIDI device support and a ``0'' is re-
+     turned if it does not have device support.
+
+     The remaining arguments are parameters or commands that can be used to
+     query or modify the device configuration.
+
+     close        This command can only be used once a device has been created
+                  by the first form of this command.  It closes the device.
+                  Once the device has been closed, it cannot be used again un-
+                  til it is reopened by a call to the first form of the mmii--
+                  ddiiddeevviiccee command.
+
+     midithru     Without a value, this command returns the status of
+                  midithru.  It will return ``on'' if midithru is enabled, and
+                  ``off'' if it is disabled.  If a value is specified is
+                  should be a boolean value from one of, ``on'', ``yes'',
+                  ``1'', ``off'', ``no'' or ``0''. The device will be conig-
+                  ured to the specified value.
+
+     slave        This command allows the device to be made a slave to anoth-
+                  er.  When a device is a slave, it will be synchronized to
+                  the master.  It will not begin playing until the master de-
+                  vice does and will stay in time with the master.  Each de-
+                  vice can only have one master, but a master device can have
+                  any number of slaves.  The MasterDevID is the device ID of
+                  the master device as returned from a call to the first form
+                  of . The slave feature is useful if you want to play a MIDI
+                  song that has more than 16 channels, and you have multiple
+                  hardware MIDI interfaces.
+
+     channel_on   Without an argument, this command returns the current list
+                  of all channels that are active.  With an argument, it will
+                  add a list of channels to the current active list.  The ac-
+                  tive list is a list off all channels that will receive
+                  events.  If a channel is inactive, any events on it will be
+
+                  masked.  By default, all channels are active.
+
+     channel_off  This is similar to the channel_on option, but returns a list
+                  off all channels that are inactive.  If an argument is spec-
+                  ified, it will remove a list of channels from the current
+                  active list.
+
+RREETTUURRNN VVAALLUUEESS
+     In the first form, mmiiddiiddeevviiccee returns a device ID that can be used in
+     later calls to mmiiddiiddeevviiccee or calls to other functions that deal with the
+     MIDI interface.  In the second form it returns values according to the
+     options specified.  See the list above for details.  In the third case,
+     mmiiddiiddeevviiccee returns a ``1'' or ``0'' depending if ttccllmmiiddii was built with
+     device support or not.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midifeature(n),  midiplay(n),  midirecord(n),  midistop(n),
+     midiwait(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                 July 11, 1994                               2

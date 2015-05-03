@@ -1,0 +1,44 @@
+#/****************************<--CSLU-->************************************/
+#/*                                                                        */
+#/*             Center for Spoken Language Understanding                   */
+#/*               Division of Biomedical Computer Science                  */
+#/*               Oregon Health and Science University                     */
+#/*                         Portland, OR USA                               */
+#/*                        Copyright (c) 1999 - 2009                       */
+#/*                                                                        */
+#/*      This module is not part of the CSTR/University of Edinburgh       */
+#/*               release of the Festival TTS system.                      */
+#/*                                                                        */
+#/*  In addition to any conditions disclaimers below, please see the file  */
+#/*  "license_ohsu_tts.txt" distributed with this software for information */
+#/*  on usage and redistribution, and for a DISCLAIMER OF ALL WARRANTIES.  */
+#/*                                                                        */
+#/*      Authors: Mike Macon, Esther Klabbers, Alexander Kain              */
+#/*                          and David Brown                               */
+#/*                                                                        */
+#/****************************<--CSLU-->************************************/
+
+TOP=../../..
+DIRNAME=src/modules/Flinger
+BUILD_DIRS=MIDI
+
+SRCS = flinger.cc fl_io.cc  fl_midi_in.cc fl_midi_parse.cc fl_midi_print.cc fl_lyricize.cc fl_token.cc fl_duration.cc fl_pitch.cc
+
+H = fl_io.h  fl_midi_in.h  fl_midi_parse.h fl_midi_print.h fl_midi_ext.h f fl_token.h l_lyricize.h fl_duration.h fl_pitch.h
+
+
+
+
+OBJS = $(SRCS:.cc=.o)
+ 
+FILES = Makefile $(SRCS) $(H)
+ 
+LOCAL_INCLUDES = -I../../include -I../OGIcommon -IMIDI
+
+ 
+INLIB = $(TOP)/src/lib/libFestival.a
+ 
+ALL = .buildlib $(BUILD_DIRS)
+ 
+include $(TOP)/config/common_make_rules
+

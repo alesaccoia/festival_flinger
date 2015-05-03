@@ -1,0 +1,33 @@
+
+MIDIPLAY(N)                          LOCAL                         MIDIPLAY(N)
+
+NNAAMMEE
+     mmiiddiippllaayy - tclmidi command to play a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiippllaayy _D_e_v_I_D _M_i_d_i_I_D [repeat]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiippllaayy is a tclmidi(1) command that plays a MIDI song through the MIDI
+     device.
+
+     The first argument to mmiiddiippllaayy is a MIDI device identifier, as returned
+     by the midideivce(n) command.  The second argument is a song descriptor
+     as returned by midimake(n) or midiread(n).  There may also be an optional
+     third argument, ``repeat''. If ``repeat'' is specified, the song will re-
+     play once the end is reached.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiippllaayy returns immediately with the value 1 if the song could be played
+     or 0 if there is no MIDI device available.  midistop(n) must be used to
+     stop playing of the song and midiwait(n) can be used to block until the
+     song reaches the end.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n),  midiread(n),  midimake(n),  midistop(n),
+     midiwait(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

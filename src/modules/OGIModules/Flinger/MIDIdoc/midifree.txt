@@ -1,0 +1,24 @@
+
+MIDIFREE(N)                          LOCAL                         MIDIFREE(N)
+
+NNAAMMEE
+     mmiiddiiffrreeee - tclmidi command to free the space used by a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiiffrreeee _M_i_d_i_I_D
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiffrreeee is a tclmidi(1) command that frees the space used by a MIDI song
+     created from a previous call to midiread(n) or midimake(n).  This command
+     takes one argument, which is the descriptor of a MIDI song.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiffrreeee does not return anything.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

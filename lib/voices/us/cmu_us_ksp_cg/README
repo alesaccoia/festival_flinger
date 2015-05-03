@@ -1,0 +1,14 @@
+
+This directory contains a US English synthetic voice based on the
+arctic database for VOICE
+
+This voice is a Clustergen Statistical Parametric Voice using the
+Random Forest techniques.
+
+This voice was recorded at Carnegie Mellon University, see
+the COPYING file for the license on this voice.
+
+Alan W Black                                email: awb@cs.cmu.edu
+Language Technologies Institute             http://www.cs.cmu.edu/~awb/
+Carnegie Mellon University                  tel: +1-412-268-6299  
+5000 Forbes Ave, Pittsburgh PA, 15213, USA. fax: +1-412-268-6298

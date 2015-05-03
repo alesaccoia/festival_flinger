@@ -1,0 +1,40 @@
+
+MIDIMERGE(N)                         LOCAL                        MIDIMERGE(N)
+
+NNAAMMEE
+     mmiiddiimmeerrggee - tclmdi command to merge multiple tracks of MIDI songs to one
+     track
+
+SSYYNNOOPPSSIISS
+     mmiiddiimmeerrggee {_d_e_s_t_M_i_d_i_I_D _d_e_s_t_T_r_a_c_k} {_s_r_c_M_i_d_i_I_D _s_r_c_T_r_a_c_k} [{ _s_r_c_M_i_d_i_I_D
+     _s_r_c_T_r_a_c_k} ...]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiimmeerrggee is a tclmidi(1) command that merges one or more source tracks
+     to a single destination track of a MIDI song.  The first option is a list
+     that designates output track.  The first element of that list is the MIDI
+     song descriptor for the track, and the second argument of the list is the
+     track in that MIDI song.
+
+     The second, and optional remaining arguments, are lists specifying the
+     source tracks.  The form of the source lists is the same as that for the
+     destination track.
+
+     The times of events in a source track are adjusted as necessary to con-
+     vert from the division of the source track to the division of the desti-
+     nation track.  See midiconfig(n) for a description of the division song
+     configuration option.
+
+     All MIDI song descriptors should be values returned from a call to midi-
+     make(n) or midiread(n).
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiimmeerrggee returns nothing.
+
+SSEEEE AALLSSOO
+     tclm(1),  midiconfig(n),  midisplit(n),  midimake(n),  midiread(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

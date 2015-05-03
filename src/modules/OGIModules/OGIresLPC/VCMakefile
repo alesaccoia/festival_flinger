@@ -1,0 +1,22 @@
+
+# Makefile for MicroCruft Visual C++
+
+TOP=..\..\..
+
+DIRNAME=src\modules\OGIresLPC
+
+todo: default_target
+
+OBJS = resLPC.obj resLPC_concat.obj resLPC_io.obj resLPC_dump.obj resLPC_mod.obj resLPC_scm.obj resLPC_wave.obj noLPC_wave.obj gmm.obj matrix.obj numeric.obj stat.obj vc.obj resLPC_analysis.obj resLPC_resyn.obj resLPC_pmark.obj pmark_analysis.obj resLPC_vqual.obj
+
+LOCAL_INCLUDES = /I..\..\..\src\include /I..\OGIdbase /I ..\OGIcommon
+
+CFLAGS = $(DEBUGFLAGS) $(OPTFLAGS) $(INCLUDEFLAGS) 
+
+INLIB = ..\..\..\$(LIB_DIR)\libFestival.lib
+
+ALL = .vcbuildlib
+!include $(TOP)\config\vc_common_make_rules
+
+!include vc_make.depend
+

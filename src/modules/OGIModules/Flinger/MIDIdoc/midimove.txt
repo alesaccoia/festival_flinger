@@ -1,0 +1,46 @@
+
+MIDIMOVE(N)                          LOCAL                         MIDIMOVE(N)
+
+NNAAMMEE
+     mmiiddiimmoovvee - tclmidi command to move a range of events in a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiimmoovvee {_d_e_s_t_M_i_d_i_I_D _d_e_s_t_T_r_a_c_k} _d_e_s_t_S_t_a_r_t_T_i_m_e {_s_r_c_M_i_d_i_I_D _s_r_c_T_r_a_c_k}
+     _s_r_c_S_t_a_r_t_T_i_m_e _s_r_c_E_n_d_T_i_m_e
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiimmoovvee is a tclmidi(1) command that moves a range of events.  These
+     events can be moved from one track to another, or moved within the same
+     track.  The source range may overlap with the destination.
+
+     The first argument is a list specifying a particular track in a MIDI
+     song.  The first element of this list is a MIDI song identifier as re-
+     turned by midimake(n),  or midinew(n).  The second element is a valid
+     track number in the MIDI song.  This list specifies the destination track
+     for the move.
+
+     The third argument is the time to start depositing the events specified
+     in the source range.  Note, the first event might not be placed at exact-
+     ly the requested time if an event does not occur at the start time for
+     the source range.  The offset between the first event and the destination
+     start time will be the same as the offset between the first event found
+     in the source range and the start time of the source range.
+
+     The fourth argument is another list identical in form to the list identi-
+     fying the destination track.  This list specified the source track.
+
+     The fifth and last arguments specify the range of events to be moved.
+     They determine the start and end times of the range.  All events found at
+     time _s_r_c_S_t_a_r_t_T_i_m_e up to, but not including events found at time
+     _s_r_c_E_n_d_T_i_m_e will be moved.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiimmoovvee does not return anything.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midicopy(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                April 13, 1994                               1

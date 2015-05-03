@@ -1,0 +1,56 @@
+
+MIDICONFIG(N)                        LOCAL                       MIDICONFIG(N)
+
+NNAAMMEE
+     mmiiddiiccoonnffiigg - tclmidi command to get or modify the configuration values of
+     a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiiccoonnffiigg _m_f_i_l_e_I_d [format [value]] [division [value]] [tracks [value]]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiccoonnffiigg is a tclmidi(1) command that gets or modifies the configura-
+     tions values of a MIDI song.
+
+     Without arguments mmiiddiiccoonnffiigg reports all three configuration values.  It
+     can also take up to three optional arguments.  All arguments should be
+     lists consisting of the parameter name followed by an optional value.  If
+     a value for a parameter is not specified then the current setting is re-
+     ported.  If a value is specified then the song parameter is changed.
+
+     mfileId is a valid MIDI song identifier as returned by midimake(n) or
+     midiread(n).
+
+     The different parameters are:
+
+     format    This option determines the song type.  There are three valid
+               values: 0, 1 and 2.  A format 0 song has only one track which
+               intermixes meta and normal events.  A format 1 song can have
+               many tracks, but track 0 always contains most of the meta
+               events, specifically MetaTempo events.  A format 2 song is sim-
+               ilar to format 1, but each track can be played separately in-
+               stead of playing them all in parallel.
+
+     division  This specifies the resolution of the timing for the song.  If
+               the unit of quanta for a song is is clock tick, there will be
+               _v_a_l_u_e clock ticks per beat.
+
+     tracks    This option specifies the number of tracks in the song.  These
+               will by dynamically created and freed automatically.  The
+               tracks are numbered 0 through _v_a_l_u_e - 1 including.  A format 0
+               song should have only one track.
+
+RREETTUURRNN VVAALLUUEESS
+     If parameters are being set, mmiiddiiccoonnffiigg will return nothing.  If parame-
+     ters are being queried, a list of lists will be returned.  Each sublist
+     will contain the parameter name and its associated value.  The parameters
+     are returned in the order specified or in the order _f_o_r_m_a_t_, _d_i_v_i_s_i_o_n_,
+     _t_r_a_c_k_s if mmiiddiiccoonnffiigg is called without arguments.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 14, 1994                              1

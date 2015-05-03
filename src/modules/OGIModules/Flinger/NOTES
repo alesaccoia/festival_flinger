@@ -1,0 +1,112 @@
+STREAM NAMES and FEATURES
+-------------------------
+
+input data:
+----------
+* LyricToken   (use EST_Token)
+	name		Holds the lyric
+	relations: SylStructure, NoteStruct
+	features: 
+		time - time (sec) at which the MIDI lyric event occurred
+			(used to link notes to lyrics)
+		punc - punctuation associated with token
+
+* Note
+	name  	Note name like C4, D#3
+	relations:  Syllable
+	features:  
+		on   - on time (sec)
+		off  - off time (sec)
+		dur  - length of note (sec) == (off - on)
+		freq - Pitch (Hz)
+		vel  - key velocity	a.c.a. volume
+		chan - MIDI channel (not used)
+	
+
+* ControlEvent
+	name {vibrato, vocal_effort, others?}
+	relations  Note, Syllable
+
+derived from input:
+------------------
+* Lyric
+	name
+	relations:  LyricToken
+
+* Syllable
+	name  
+	relations:  Lyric, SylStructure, NoteStruct
+	features:
+		stress - get from lexicon
+
+* Segment
+	name  phoneme name
+  	relations:  Syllable
+	features: start, end
+
+* F0_Target
+	name 
+	relations:
+	features:  vibrato depth, glide, drift, offset 
+
+* Aux
+	- name: ?
+	- features: vocal_effort, others.
+
+
+
+
+
+TOP-LEVEL FUNCTIONS 
+-------------------
+
+sing_midifile 
+	Reads MIDI file into utterance, applies
+	hooks to call utt.synth on utterance of
+	type 'Song' (see fling.scm to see what this means).
+	Results in existence of at least Lyric, Note streams,
+	with relations.
+
+
+FL_Initialize 
+	Wipes out current utterance, checks that it is an
+	utterance of type 'Song'
+
+FL_Tokenize
+	Strips off (and keeps track of) punctuation symbols, etc.
+	in LyricTokens.  Results in Lyric stream containing 
+	pronouncable words/syllables, no punctuation or symbols.
+
+FL_Lyricize
+	Figures out how to pronounce the lyrics.
+	Turn the Lyric stream into Segments and Syllables: use	
+		- lexicon lookup
+		- LtS rules
+		- syllabification if needed
+		- eventually fancier things like putting split 
+		  words back together to lookup pronunciation, 
+		  then split again into syllables.
+	Results in Segment stream with related Syllables.
+
+FL_MIDIcontrol
+	Associate ControlEvents to Notes.  Results in Aux stream.
+
+FL_NoteDur
+	Use relations between Segments, Syllables, Notes to get a 
+	duration for each Segment.  Also use default durations of
+	Segments, other rules.   Result is duration for each Segment
+	streamitem.
+
+FL_NoteF0
+	Use relations between Segments, Notes, and ControlEvents to 
+	create an F0_Target stream.  This specifies target pitch, with
+	attached features to describe vibrato, drift, etc.
+
+FL_WaveSynth
+	At the top level, make an interface that could use several signal
+	processing models.  Make low-level code for now much like
+	OGIresLPC, but include more flexible pitch modification
+	routines to do vibrato, drift, etc.   Maybe also a voice quality
+	scaling via filtering.
+
+

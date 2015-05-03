@@ -1,0 +1,26 @@
+
+MIDIPUT(N)                           LOCAL                          MIDIPUT(N)
+
+NNAAMMEE
+     mmiiddiippuutt - tclmidi command to insert an event in a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiippuutt _M_i_d_i_I_D _t_r_a_c_k _e_v_e_n_t
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiippuutt is a tclmidi(1) command that inserts an event in a track of a
+     MIDI song.  The first argument is a MIDI song descriptor as returned by
+     midimake(n) or midiread(n).  The second argument is the track in the MIDI
+     song.  The third argument is the event to insert.  See midievents(n),
+     for a description of MIDI events.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiippuutt returns nothing.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midiget(n),  midievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

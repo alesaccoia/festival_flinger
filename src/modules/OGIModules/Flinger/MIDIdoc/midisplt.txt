@@ -1,0 +1,35 @@
+
+MIDISPLIT(N)                         LOCAL                        MIDISPLIT(N)
+
+NNAAMMEE
+     mmiiddiisspplliitt - tclmidi command to split a track into a meta track and an
+     other track
+
+SSYYNNOOPPSSIISS
+     mmiiddiisspplliitt {_s_r_c_M_i_d_i_I_d _s_r_c_T_r_a_c_k} {_m_e_t_a_M_i_d_i_I_D _m_e_t_a_T_r_a_c_k} {_o_t_h_e_r_M_i_d_i_I_D
+     _o_t_h_e_r_T_r_a_c_k}
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiisspplliitt is a tclmidi(1) command that splits one track into two tracks.
+     The first of the resulting tracks will contain only meta events, while
+     the second will contain all other events.  Both tracks will be terminated
+     with a MetaEndOfTrack event.
+
+     The first argument is a list that contains the MIDI song descriptor of
+     the source track and the track number in that song.  The second argument
+     is a similar list for the track where meta events should go, and the
+     third argument is a list describing where the remaining events should go.
+
+     The MIDI song descriptors should be values returned by either midiread(n)
+     or midimake(n).
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiisspplliitt returns nothing.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midimerge(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

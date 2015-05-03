@@ -1,0 +1,50 @@
+
+MIDIFEATURE(N)                       LOCAL                      MIDIFEATURE(N)
+
+NNAAMMEE
+     mmiiddiiffeeaattuurree - tclmidi command to control hardware specific features on a
+     MIDI device
+
+SSYYNNOOPPSSIISS
+     mmiiddiiffeeaattuurree DevID [device_specific_features]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiffeeaattuurree is a tclmidi(1) command that allows you to control features
+     available only on some MIDI hardware interfaces.  The ability to control
+     features common to all MIDI interfaces is done with the mididevice(n)
+     command.  The first argument is the device identifier, as returned by a
+     call to mididevice(n).  The remaining arguments are device specific.
+
+     Currently, the following features are available:
+
+     kernel_timing  This feature enable kernel based timing on the interface.
+                    This is the default timing mode on all devices.
+
+     smpte_timing   This feature is only available on the MQX-32 MIDI inter-
+                    face.  It enables an external timing mode based on a SMPTE
+                    tape.  The device will follow the SMPTE tape times, even
+                    if the tape is rewound, or fast-forwarded.
+
+     mpu401_timing  This feature is available on all fully MPU401 compatible
+                    boards.  It puts the board in intelligent mode and uses it
+                    as a timing source.  Due to driver implementation details,
+                    it really is no more accurate than kernel_timing, and per-
+                    haps less so.  It use is discouraged, and is only used for
+                    driver debugging purposes.
+
+     get_smpte      This feature is only available on the MQX-32 MIDI inter-
+                    face when that device is in SMPTE mode.  It returns the
+                    current SMPTE time.  The time is in the form:
+                    hh:mm:ss:fr:ff
+
+RREETTUURRNN VVAALLUUEESS
+     Return values are dependent on the feature type.  See the list above for
+     details.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                 Nov 30, 1995                                1

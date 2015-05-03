@@ -1,0 +1,45 @@
+
+MIDIRECORD(N)                        LOCAL                       MIDIRECORD(N)
+
+NNAAMMEE
+     mmiiddiirreeccoorrdd - tclmidi command to record a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiirreeccoorrdd _D_e_v_I_D _R_e_c_M_i_d_i_I_D [PlayMidiID [repeat]]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiirreeccoorrdd is a tclmidi(1) command that records events from a MIDI device
+     and puts them in a MIDI song.
+
+     The first argument to mmiiddiirreeccoorrdd is a MIDI device identifier as returned
+     from a call to mididevice(n).  The second argument is the MIDI song de-
+     scriptor of the record song.  It should be one returned from midimake(n)
+     or midiread(n).  The third argument is an optional MIDI song descriptor
+     for a song that should be played while recording.  Furthermore, an op-
+     tional fourth argument of ``repeat'' may be specified so the play song
+     will be repeated.
+
+     Recording continues until the midistop(n) command is issued.  midiwait(n)
+     may be used to block until the play song finishes.
+
+     All recorded events are put into track 0 of the MIDI song.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiirreeccoorrdd returns immediately with 0 if no MIDI devices are available,
+     or 1 if one is.
+
+BBUUGGSS
+     The MPU-401 device interface dynamically creates events in the record
+     MIDI song asynchronously.  Since this involves a call to malloc(3) which
+     is not re-entrant, this is a potential hazard.  Until I figure out a way
+     around this, avoid other calls to malloc(3) while recording.  The current
+     TCL signal synchronizing commands found are not adequate for this task.
+
+SSEEEE AALLSSOO
+     tclm(1),  mididevice(n),  midiplay(n),  midiread(n),  midimake(n),
+     midistop(n),  midiwait(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

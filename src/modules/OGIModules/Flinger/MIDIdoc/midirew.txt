@@ -1,0 +1,30 @@
+
+MIDIREWIND(N)                        LOCAL                       MIDIREWIND(N)
+
+NNAAMMEE
+     mmiiddiirreewwiinndd - tclmidi command to reset a MIDI song pointer to the begin-
+     ning
+
+SSYYNNOOPPSSIISS
+     mmiiddiirreewwiinndd _m_f_i_l_e_I_d [track]
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiirreewwiinndd is a tclmidi(1) command that sets the internal place keeper of
+     a MIDI song to the beginning.  The first argument is a MIDI song descrip-
+     tor as returned by midimake(n) or midiread(n).  An optional second argu-
+     ment may also be specified to rewind only a specific track.  This argu-
+     ment should be a track number.  Without a second argument, all tracks in
+     the MIDI song are rewound.
+
+     mmiiddiirreewwiinndd affects all future calls to midiget(n) for the song.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiirreewwiinndd does not return anything.
+
+SSEEEE AALLSSOO
+     tclm(1),  midiread(n),  midimake(n),  midiget(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

@@ -1,0 +1,39 @@
+
+MIDITRACK(N)                         LOCAL                        MIDITRACK(N)
+
+NNAAMMEE
+     mmiiddiittrraacckk - tclmidi command to get information about a MIDI track
+
+SSYYNNOOPPSSIISS
+     mmiiddiittrraacckk _m_f_i_l_e_I_d _t_r_a_c_k _{_s_t_a_r_t_|_e_n_d_}
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiittrraacckk is a tclmidi(1) command that gets information about a MIDI
+     track.  Currently two types of information can be obtained.  These are
+     the time of the first event found in the track, and the time of the last
+     event in the track.  The time of the last event in the track might be
+     different than that returned by a call to midiget getting the last event
+     in a track.  This is because midiget returns NoteOn/NoteOff event pairs
+     as a single Note event, and the Note event contains the time of the No-
+     teOn event.  mmiiddiittrraacckk will return the time of the last event in a file
+     including NoteOff halves of Note events.
+
+     The first argument to mmiiddiittrraacckk is a MIDI song identifier.  The second
+     argument is a track number of that song, and the last argument is one of
+     either ``start'' or ``end''.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiittrraacckk returns the time of the first or last event in a track for the
+     _s_t_a_r_t and _e_n_d options.
+
+NNOOTTEESS
+     mmiiddiittrraacckk might be expanded in the future to supply other types of infor-
+     mation about MIDI tracks.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiget(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                 June 22, 1994                               1

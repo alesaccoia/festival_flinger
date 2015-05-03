@@ -1,0 +1,31 @@
+
+MIDIWAIT(N)                          LOCAL                         MIDIWAIT(N)
+
+NNAAMMEE
+     mmiiddiiwwaaiitt - tclmidi command to block until playing or recording a MIDI
+     song finishes
+
+SSYYNNOOPPSSIISS
+     DDeevvIIDD
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiwwaaiitt is a tclmidi(1) command that blocks until a MIDI song finishes
+     playing.  The argument is a device identifier, as return by a call to
+     mididevice(n).  mmiiddiiwwaaiitt only works during recording if a song is also
+     being played.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiwwaaiitt returns 1 if it could successfully stop playing or recording, 0
+     otherwise.
+
+BBUUGGSS
+     Care should be taken to avoid calling mmiiddiiwwaaiitt when a song is playing in
+     repeat mode.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n),  midiplay(n),  midirecord(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

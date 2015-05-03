@@ -1,0 +1,28 @@
+
+MIDITIME(N)                          LOCAL                         MIDITIME(N)
+
+NNAAMMEE
+     mmiiddiittiimmee - tclmidi command to get the current MIDI device time
+
+SSYYNNOOPPSSIISS
+     mmiiddiittiimmee DevID
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiittiimmee is a tclmidi(1) command that gets the current time in the MIDI
+     device.  The argument is a device identifier, as return by a call to
+     mididevice(n).
+
+     mmiiddiittiimmee returns the time as SMF ticks since the beginning of the song
+     being played or recorded.
+
+RREETTUURRNN VVAALLUUEESS
+     The number of SMF ticks on a device since the start of playing or record-
+     ing.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  mididevice(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                January 8, 1995                              1

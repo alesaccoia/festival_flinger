@@ -1,0 +1,27 @@
+
+MIDIWRITE(N)                         LOCAL                        MIDIWRITE(N)
+
+NNAAMMEE
+     mmiiddiiwwrriittee - tclmidi command to write a MIDI song as a Standard MIDI File
+
+SSYYNNOOPPSSIISS
+     mmiiddiiwwrriittee _F_i_l_e_I_D _M_i_d_i_I_D
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiwwrriittee is a tclmidi(1) command that writes a MIDI song to an open tcl
+     file descriptor in the form of a Standard MIDI File.  This command takes
+     two arguments.  The first is a tcl file descriptor as returned by the ttccll
+     command open(n),  the string ``stdout'' or ``stderr.''  The second argu-
+     ment is a MIDI song descriptor as returned by midimake(n) or midiread(n).
+
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiwwrriittee does not return anything.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  open(n),  midiread(n),  midimake(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental               January 30, 1994                              1

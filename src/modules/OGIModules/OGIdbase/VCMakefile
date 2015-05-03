@@ -1,0 +1,22 @@
+
+# Makefile for MicroCruft Visual C++
+
+TOP=..\..\..
+
+DIRNAME=src\modules\OGIdbase
+
+todo: default_target
+
+OBJS = OGIdbase.obj OGIdbase_scm.obj OGIunitsel_diphone.obj OGIdbUnits.obj OGIresLPC_db.obj
+
+LOCAL_INCLUDES = /I..\..\..\src\include /I..\OGIcommon
+
+CFLAGS = $(DEBUGFLAGS) $(OPTFLAGS) $(INCLUDEFLAGS) 
+
+INLIB = ..\..\..\$(LIB_DIR)\libFestival.lib
+
+ALL = .vcbuildlib
+!include $(TOP)\config\vc_common_make_rules
+
+!include vc_make.depend
+

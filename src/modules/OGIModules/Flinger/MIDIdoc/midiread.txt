@@ -1,0 +1,31 @@
+
+MIDIREAD(N)                          LOCAL                         MIDIREAD(N)
+
+NNAAMMEE
+     mmiiddiirreeaadd - tclmidi command to read a MIDI song from a Standard MIDI File
+
+SSYYNNOOPPSSIISS
+     mmiiddiirreeaadd _F_i_l_e_I_D
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiirreeaadd is a tclmidi(1) command that reads a Standard MIDI File and con-
+     verts it to a MIDI song for use by other tclmidi(1) commands.
+
+     mmiiddiirreeaadd takes one argument that specifies a file descriptor from which
+     to read the Standard MIDI File.  This argument should be a value returned
+     by the open(n) tcl command, or ``stdin.''
+
+     Since mmiiddiirreeaadd allocates space for the MIDI song, midifree(n) should be
+     used when the file is no longer needed.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiirreeaadd returns a MIDI song descriptor that may be used by other tclmi-
+     di(1) commands.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  open(n),  midifree(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                Januay 30, 1994                              1

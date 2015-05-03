@@ -1,0 +1,22 @@
+
+# Makefile for MicroCruft Visual C++
+
+TOP=..\..\..\..
+
+DIRNAME=src\modules\Flinger\MIDI
+
+todo: default_target
+
+OBJS = rb.obj list.obj ChanPres.obj Event.obj EvntUtil.obj KeyPres.obj MChanPrf.obj MCopy.obj MCue.obj MEOT.obj MEvent.obj MInstNam.obj MKey.obj MLyric.obj MMarker.obj MPortNum.obj MSMPTE.obj MSeqNam.obj MSeqNum.obj MSeqSpec.obj MTempo.obj MText.obj MTime.obj MUnknown.obj NormEvnt.obj Note.obj NoteOff.obj NoteOn.obj Param.obj PitchWhl.obj Program.obj SysEx.obj SMFHead.obj SMFTrack.obj SMFUtils.obj SysEx.obj EvntTree.obj Song.obj
+
+LOCAL_INCLUDES = /I..\..\..\include
+
+CFLAGS = $(DEBUGFLAGS) $(OPTFLAGS) $(INCLUDEFLAGS) 
+
+INLIB = ..\..\..\..\$(LIB_DIR)\libFestival.lib
+
+ALL = .vcbuildlib
+!include $(TOP)\config\vc_common_make_rules
+
+!include vc_make.depend
+

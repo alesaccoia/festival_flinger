@@ -1,0 +1,34 @@
+
+MIDIDELETE(N)                        LOCAL                       MIDIDELETE(N)
+
+NNAAMMEE
+     mmiiddiiddeelleettee - tclmidi command to delete an event or events in a MIDI song
+
+SSYYNNOOPPSSIISS
+     mmiiddiiddeelleettee _M_i_d_i_I_D _t_r_a_c_k _e_v_e_n_t
+     mmiiddiiddeelleettee _M_i_d_i_I_D _t_r_a_c_k _f_i_l_e _._._.``range'' _s_t_a_r_t _e_n_d
+
+DDEESSCCRRIIPPTTIIOONN
+     mmiiddiiddeelleettee is a tclmidi(1) command that deletes one or more events from a
+     specified track in a MIDI song.  The first argument is a MIDI song de-
+     scriptor as returned by midimake(n) or midiread(n).  The second argument
+     is the track in the MIDI song.  In the first form, the third argument is
+     a specific event to remove.  For formatting of events, see midievents(n).
+
+
+     In the second form, the third argument is the string ``range''. The
+     fourth argument is then the start time of events to be delete and the
+     last argument is the end time of the range.  All events starting at time
+     _s_t_a_r_t up to but not including events at time _e_n_d are then deleted.
+
+RREETTUURRNN VVAALLUUEESS
+     mmiiddiiddeelleettee returns a 1 if the event or events were successfully removed,
+     or 0 if, in the first case, the event could not be found.
+
+SSEEEE AALLSSOO
+     tclmidi(1),  midiread(n),  midimake(n),  midiput(n),  midievents(n)
+
+AAUUTTHHOORR
+     Mike Durian - durian@boogie.com
+
+BSD Experimental                April 13, 1994                               1
