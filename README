@@ -1,4 +1,28 @@
 
+This is an attempt of rescuing the almost disaeeared Flinger module
+for Festival. I have found the code on
+https://github.com/danx0r/festival
+It was heavily hacked, Makefiles missing/not up-to-date and was 
+prepared for Windows systems. This is a attempt to get the thing
+working on mac os.
+
+
+Notes
+
+---DEBUGGING---
+I have to debug with gdb wo these flags had to be added to
+config/config.in
+
+OPTIMISE=0                                                                      
+WARN=1                                                                          
+#
+VERBOSE=1                                                                     
+DEBUG=1
+
+
+
+Follows the original license of Festival 2.4
+-------------------------------
               The Festival Speech Synthesis System
                    version 2.4 December 2014
  
