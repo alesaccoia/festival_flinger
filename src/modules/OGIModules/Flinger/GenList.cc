@@ -27,7 +27,7 @@
 
 
 
-#define SIZEOFPOINTER 8	//(8 bytes = 32 bits). 
+#define SIZEOFPOINTER 16	//(8 bytes = 32 bits). 
 
 /*==========================================================================*/
 
