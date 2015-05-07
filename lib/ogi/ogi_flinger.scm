@@ -18,7 +18,7 @@
 
 ;; ogi_flinger.scm
 
-(require 'ogi_kddurtreeZ_wb)
+(require 'ogi/ogi_kddurtreeZ_wb)
 
 ;;;  Once the utterance is built these functions synth and play it
 (defvar sing_hooks (list utt.synth utt.play)
@@ -58,7 +58,7 @@ This typically contains the utt.synth function and utt.play.")
   '(drift_freq3 12.7)       ;; 
   '(drift_ampl 0.003)       ;; 
   '(transpose 0)            ;; 
-  '(consonant_stretch 1.0)  ;; 
+  '(consonant_stretch 3.0)  ;; 
   '(min_rest_dur 0.060)     ;; 
   '(phone_delimiter "|")    ;; 
   '(dump_info 0)            ;;
