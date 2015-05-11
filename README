@@ -4,13 +4,31 @@ for Festival. I have found the code on
 https://github.com/danx0r/festival
 It was heavily hacked, Makefiles missing/not up-to-date and was 
 prepared for Windows systems. This is a attempt to get the thing
-working on mac os.
+working again on mac os.
 
+License: the license it's for festival. For the Flinger module and the OGI voices in
+/lib/voices
+there seems to be different licensing, see
+http://www.ohsu.edu/tech-transfer/portal/technology.php?technology_id=23064
+http://www.ohsu.edu/xd/research/centers-institutes/center-for-spoken-language-understanding/product-licensing.cfm
+
+I take no responsability for this, if you want to use it it's up to you to find out 
+what i
 
 Notes
 
+-- BUILDING --
+The program has hardcoded 32 bit pointer arithmetics, and it uses the configuration
+flags that are in the speech_tools.
+in speech_tools/config/compilers/gcc_defaults.mak you should have the lines
+
+CFLAGS  = $(GCC_SYSTEM_OPTIONS) -arch i386 $(CC_OTHER_FLAGS) 
+CXXFLAGS  =  $(GCC_SYSTEM_OPTIONS) -fno-implicit-templates -arch i386 $(CC_OTHER_FLAGS)
+LINKFLAGS = $(LD_OTHER_FLAGS) -arch i386
+
+
 ---DEBUGGING---
-I have to debug with gdb wo these flags had to be added to
+To get a debug build, these flags had to be added to
 config/config.in
 
 OPTIMISE=0                                                                      
@@ -19,6 +37,8 @@ WARN=1
 VERBOSE=1                                                                     
 DEBUG=1
 
+---USAGE---
+The voices named *ogi* work pretty well
 
 
 Follows the original license of Festival 2.4
