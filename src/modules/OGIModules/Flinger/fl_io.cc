@@ -113,7 +113,7 @@ bool Flinger_params_loaded(void){
 }
 
 // YK 2011-07-25 API to manage a debug file switch
-static int flinger_debug_file_flag = 0;
+static int flinger_debug_file_flag;
 
 void Flinger_set_debug_file_flag(const int val) {
 	flinger_debug_file_flag = val;

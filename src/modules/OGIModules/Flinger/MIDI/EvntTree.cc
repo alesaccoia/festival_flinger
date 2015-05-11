@@ -644,7 +644,9 @@ EventTree::PutEvent(const Event &event)
 	place = rb_find_ukey(head, time);
 	assert(place != 0);
 	e = (Event *)place->v.val;
+	std::cout << "Adding event time " << time << " type " << event.GetType() << std::endl;
 	if (e != 0 && e->GetTime() == time) {
+	  std::cout << "Found an event with the same time" << std::endl;
 		/* find end of event list or duplicate */
 		first = e;
 		for (; e->GetNextEvent() != 0 && !(*e == event);

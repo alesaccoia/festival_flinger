@@ -72,7 +72,7 @@ public:
 	const char *GetError(void) const;
 
 	void SetNotePair(int track_num, Event *event);
-private:
+
 	short format;
 	short division;
 	short num_tracks;

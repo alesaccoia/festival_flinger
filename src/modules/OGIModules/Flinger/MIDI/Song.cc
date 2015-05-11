@@ -492,6 +492,14 @@ Song::SMFRead(int fd)
 		}
 	}
 	RewindEvents();
+	Event *pEvent;
+	for (int trackNr=0; trackNr<num_tracks; trackNr++)
+  {
+    for (pEvent=tracks[trackNr]->NextEvent(); pEvent!=0; pEvent=tracks[trackNr]->NextEvent()) {
+      std::cout << "Track " << trackNr << " event at time: " << pEvent->GetTime() << " type " << pEvent->GetType()  << endl;
+    }
+  }
+  RewindEvents();
 	return(GOOD);
 //End DJLB addition/modification
 }

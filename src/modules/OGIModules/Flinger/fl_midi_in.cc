@@ -338,7 +338,7 @@ LISP midifile_to_utt(EST_String filename, LISP utt)
 			     pEvent=mf.NextEvent(track))
 			{
 				cout << "accessing " <<flush;
-				cout << "event " << pEvent->GetType()  << endl;
+				cout << "event time " << pEvent->GetTime() << " type " << pEvent->GetType()  << endl;
 				if(pEvent->GetType() == METASEQUENCENAME)
 				{           // Collect track names for later use.
 					cout << "inside if " << pEvent->GetType()  << endl;

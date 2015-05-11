@@ -106,7 +106,7 @@ public:
 		dummy = &t;
 		return (0);
 	}
-private:
+
 	unsigned long time;
 	unsigned long wildcard;
 	static const unsigned long wc_time;
