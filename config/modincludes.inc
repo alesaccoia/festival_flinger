@@ -1,7 +1,7 @@
  ###########################################################################
  ## This file is created automatically from your config file.
  ## Do not hand edit.
- ## Created:Sun May 3 13:47:50 CEST 2015
+ ## Created:Wed May 6 12:10:44 CEST 2015
  ###########################################################################
 
 MOD_DESC_NATIVE_AUDIO=(from EST) Native audio module for your system
@@ -32,6 +32,11 @@ MOD_DESC_MultiSyn=Unknown Module
 INCLUDE_MultiSyn=1
 ifeq ($(DIRNAME),src/modules)
     EXTRA_LIB_BUILD_DIRS := $(EXTRA_LIB_BUILD_DIRS)  MultiSyn
+endif
+MOD_DESC_OGIModules=Unknown Module
+INCLUDE_OGIModules=1
+ifeq ($(DIRNAME),src/modules)
+    EXTRA_LIB_BUILD_DIRS := $(EXTRA_LIB_BUILD_DIRS)  OGIModules
 endif
 MOD_DESC_hts_engine=Unknown Module
 INCLUDE_hts_engine=1
